@@ -6,7 +6,7 @@ metadata:
   labels:
     app: session20-mini
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: session20-mini
@@ -20,7 +20,7 @@ spec:
         # The image tag is the ONLY place a version is declared - a GitOps "image bump" is
         # just a one-line change to this value committed to Git.
         - name: app
-          image: ghcr.io/stefanprodan/podinfo:6.9.1
+          image: ghcr.io/stefanprodan/podinfo:6.9.2
           ports:
             - containerPort: 9898
           readinessProbe:
