@@ -8,4 +8,4 @@ spec:
     app: session20-mini
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 9898

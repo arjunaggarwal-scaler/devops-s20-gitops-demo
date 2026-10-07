@@ -12,7 +12,7 @@ Developer --git push--> GitHub (this repo, desired state) <--polls-- Argo CD --a
 | Path | What | Applied by |
 |---|---|---|
 | `app/namespace.yaml` | `session20` namespace | Argo CD (from Git) |
-| `app/deployment.yaml` | `session20-mini` nginx Deployment | Argo CD (from Git) |
+| `app/deployment.yaml` | `session20-mini` podinfo Deployment | Argo CD (from Git) |
 | `app/service.yaml` | ClusterIP Service | Argo CD (from Git) |
 | `argocd/application.yaml` | Argo CD `Application` pointing at `app/` | me, once, with `kubectl apply` |
 

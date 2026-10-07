@@ -16,15 +16,23 @@ spec:
         app: session20-mini
     spec:
       containers:
+        # podinfo is a small Go web app pulled from GitHub Container Registry (ghcr.io).
+        # The image tag is the ONLY place a version is declared - a GitOps "image bump" is
+        # just a one-line change to this value committed to Git.
         - name: app
-          image: nginx:1.27-alpine
+          image: ghcr.io/stefanprodan/podinfo:6.9.1
           ports:
-            - containerPort: 80
+            - containerPort: 9898
           readinessProbe:
             httpGet:
-              path: /
-              port: 80
+              path: /readyz
+              port: 9898
             periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 9898
+            periodSeconds: 10
           resources:
             requests:
               cpu: 10m
